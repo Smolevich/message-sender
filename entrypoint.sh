@@ -1,4 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
-composer install
-composer run-test
+composer install && composer run-test
