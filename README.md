@@ -4,6 +4,7 @@
 
 - [Installation](#installation)
   - [Using docker compose](#using-docker-compose)
+  - [Environment variables](#environment-variables)
 - [Api](#api)
   - [Tokens](#tokens)
   - [Endpoints](#endpoints)
@@ -18,6 +19,30 @@
 2. Set credentils for database in env file
 3. Install dependencies `docker-compose exec php composer install`
 4. Apply migrations `docker-compose exec php php artisan migrate`
+
+### Environment variables
+
+- `DB_HOST` - hostname for database storage
+
+- `DB_PORT` - port for database storage
+
+- `DB_DATABASE` - database name
+
+- `DB_USERNAME` - username
+
+- `DB_PASSWORD` - password
+
+- `QUEUE_CONNECTION` - value must set to `redis`
+
+- `REDIS_HOST` - hostname for redis instance
+
+- `REDIS_PORT` - port for redis instance
+
+- `REDIS_QUEUE` - queue name
+
+
+
+
 
 ## Api
 
