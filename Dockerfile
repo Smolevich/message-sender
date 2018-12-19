@@ -1,3 +1,5 @@
+FROM composer:1.8 
+
 FROM php:fpm-alpine
 
 ENV PHP_RUN_DEPS curl \
@@ -30,5 +32,7 @@ RUN pecl channel-update pecl.php.net \
     && pecl install -o -f redis \
     &&  rm -rf /tmp/pear \
     &&  docker-php-ext-enable redis  
+
+COPY --from=0 /usr/bin/composer /usr/local/bin/composer
 
 WORKDIR /var/www/html

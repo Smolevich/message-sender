@@ -1,0 +1,9 @@
+before_install:
+  - printenv
+services:
+  - docker
+before_script:
+  - docker run --rm -v $(pwd):/app composer install
+script:
+  - docker build -t message-sender .
+  - docker run --rm -v $(pwd):/app message-sender vendor/bin/phpunit
