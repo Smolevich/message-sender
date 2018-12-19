@@ -35,4 +35,6 @@ RUN pecl channel-update pecl.php.net \
 
 COPY --from=0 /usr/bin/composer /usr/local/bin/composer
 
+ADD . /var/www/html
+
 WORKDIR /var/www/html
