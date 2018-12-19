@@ -1,9 +1,11 @@
 before_install:
   - printenv
+env:
+  - IMAGE_NAME="$(echo $IN | cut -d'/' -f2)"  
 services:
   - docker
 before_script:
   - docker run --rm -v $(pwd):/app composer install
 script:
-  - docker build -t message-sender .
-  - docker run --rm -v $(pwd):/app message-sender vendor/bin/phpunit
+  - docker build -t "${IMAGE_NAME}" .
+  - docker run --rm -v $(pwd):/var/www/html "${IMAGE_NAME}" vendor/bin/phpunit
